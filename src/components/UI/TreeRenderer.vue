@@ -9,8 +9,8 @@
       :nodes="node.children"
       :data="node"
     >
-      <template v-for="slot in Object.keys($slots)" v-slot:[slot]="scope">
-        <slot :name="slot" v-bind="scope" />
+      <template v-for="(_, slot) in $slots" #[slot]="{ data }">
+        <slot :name="slot" :data="data" />
       </template>
     </tree-renderer>
   </ul>
